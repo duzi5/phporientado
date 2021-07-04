@@ -1,4 +1,5 @@
 <?php 
+include '../app/config.php';
 include './../app/libraries/Rota.php';
 include './../app/libraries/Controller.php';
 
@@ -13,7 +14,7 @@ include './../app/libraries/Controller.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso de PHP orientado</title>
+    <title> <?= APP_NOME ?></title>
 </head>
 <body>
     <?php 
