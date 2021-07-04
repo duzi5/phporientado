@@ -5,8 +5,8 @@ class Rota{
    
    
    private $controlador = 'paginas';
-   
-   
+   private $metodo ='index';
+   private $parametros = [];
    
     public function __construct()
     {
@@ -17,7 +17,17 @@ class Rota{
         endif;
         require_once '../app/Controllers/'.$this->controlador.'.php';
         $this->controlador = new $this->controlador;
-        var_dump($this);
+        
+        if(isset($url[1])) : 
+            if(method_exists($this->controlador, $url[1])): 
+                $this->metodo = $url[1];
+                unset($url[1]);
+        
+            endif;
+        endif;
+        $this->parametros = $url? array_values($url) : [];
+        call_user_func_array([$this->controlador, $this->metodo], $this->parametros);
+        
         
     }
 
