@@ -62,11 +62,11 @@ class Database {
     }
 
     public function totalResultados(){ 
-        return $this->stmt->rowCount;
+        return $this->stmt->rowCount();
     }
 
     public function ultimoIdInserido(){
-        return $this->stmt->lastInsertId();
+        return $this->dbh->lastInsertId();
     }
 
 }
